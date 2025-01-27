@@ -63,6 +63,7 @@ python을 기반으로 Apache Airflow, Apache Kafka, Apache Zookeeper, Apache Sp
    
    ```bash
    python spark_stream.py
+   
    spark-submit --master spark://localhost:7077 spark_stream.py
    ```
 
@@ -112,17 +113,14 @@ python을 기반으로 Apache Airflow, Apache Kafka, Apache Zookeeper, Apache Sp
    spark-submit --version
    ```
 
-10. 종속성 삽입 실행 (예시)
+10. 종속성 삽입 실행
       ```bash
       spark-submit \
          --master spark://localhost:7077 \
-         --packages \
-         com.datastax.spark:spark-cassandra-connector_2.12:3.4.1,\
-         org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1,\
-         org.apache.kafka:kafka-clients:3.4.0,\
-         org.apache.spark:spark-token-provider-kafka-0-10_2.12:3.4.1,\
-         org.apache.commons:commons-pool2:2.11.1 \
-            spark_stream.py
+         --packages com.datastax.spark:spark-cassandra-connector_2.12:3.4.1,org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.1,org.apache.kafka:kafka-clients:3.4.0,org.apache.spark:spark-token-provider-kafka-0-10_2.12:3.4.1,org.apache.commons:commons-pool2:2.11.1 \
+         spark_stream.py
+
+
       ```
 
 11. #producer확인 로그
@@ -131,3 +129,7 @@ python을 기반으로 Apache Airflow, Apache Kafka, Apache Zookeeper, Apache Sp
 
       ```
  
+12. #실행환경확인
+   ```bash 
+   echo $PYTHONPATH
+   ```
